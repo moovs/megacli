@@ -8,7 +8,7 @@
 
   - name: dpkg -i megacli
     command: "{{ item }}"
-    sudo: yes
+    become_user: root
     with_items:
       - "dpkg -i ~/megacli_8.07.14-2+Debian.stretch.9.9_amd64.deb"
 
