@@ -1,21 +1,17 @@
 ---
 - hosts: all
   tasks:
-  - name: add megacli to source list 
-    apt_repository: 
-      repo: deb http://mirror.rackspace.com/hwraid.le-vert.net/debian/ jessie main
-      state: present
+  - name: download megacli deb package
+      get_url:
+        url: http://hwraid.le-vert.net/debian/pool-stretch/megacli/megacli_8.07.14-2%2BDebian.stretch.9.9_amd64.deb
+        dest: ~/
 
-  - name: install PGP signature
-    apt_key:
-      url: https://hwraid.le-vert.net/debian/hwraid.le-vert.net.gpg.key
-      state: present
+  - name: dpkg -i megacli
+    command: "{{ item }}"
+    sudo: yes
+    with_items:
+      - "dpkg -i ~/megacli_8.07.14-2+Debian.stretch.9.9_amd64.deb"
 
   - name: apt-get update
     apt:
       update_cache: yes
-
-  - name: install megacli
-    package:
-      name: megacli 
-      state: present
