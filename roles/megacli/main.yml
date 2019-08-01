@@ -10,7 +10,7 @@
     command: "{{ item }}"
     become_user: root
     with_items:
-      - "dpkg -i ~/megacli_8.07.14-2+Debian.stretch.9.9_amd64.deb"
+      - "dpkg -i ~/megacli_8.07.14-2%2BDebian.stretch.9.9_amd64.deb"
 
   - name: apt-get update
     apt:
