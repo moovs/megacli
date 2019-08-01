@@ -12,4 +12,7 @@ my_domain ansible_ssh_host=192.168.0.0 ansible_ssh_user=my_user
 ```
 4. And run: 
 ```ansible-playbook -i hosts ./roles/megacli/main.yml```
-5. You have installed MegaCLI on your host :alien:
+5. Simple way to get a status of RAID run next command:
+```megacli -AdpAllInfo -aALL```
+6. You have installed MegaCLI on your host :alien:
+
