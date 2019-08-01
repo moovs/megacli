@@ -2,9 +2,9 @@
 - hosts: all
   tasks:
   - name: download megacli deb package
-      get_url:
-        url: http://hwraid.le-vert.net/debian/pool-stretch/megacli/megacli_8.07.14-2%2BDebian.stretch.9.9_amd64.deb
-        dest: ~/
+    get_url:
+      url: http://hwraid.le-vert.net/debian/pool-stretch/megacli/megacli_8.07.14-2%2BDebian.stretch.9.9_amd64.deb
+      dest: ~/
 
   - name: dpkg -i megacli
     command: "{{ item }}"
